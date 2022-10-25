@@ -12,9 +12,13 @@ dotfiles:
   d_nvim:
     src: config/nvim
     dst: ~/config/nvim
+  d_zsh:
+    src: config/zsh
+    dst: ~/config/zsh
 profiles:
   max-private:
     dotfiles:
     - f_zshrc
     - f_tmux.conf
     - d_nvim
+    - d_zsh

@@ -1,0 +1,12 @@
+# GENERAL ALIASES
+alias nv="nvim"
+alias open='xdg-open'
+alias cpuStat='mpstat -P ALL 1'
+alias hist='history | grep'
+alias config='cd /home/mspahn/develop/config'
+alias psh='poetry shell'
+alias p3='python3'
+alias ran='. ranger'
+alias latexproj='. ~/createTexProject'
+alias cuda='export PATH=/usr/local/cuda/bin:$PATH'
+alias testSpeed='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
