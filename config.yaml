@@ -28,6 +28,4 @@ profiles:
   max-work:
     dotfiles:
     - f_zshrc
-  =max-work:
-    dotfiles:
     - d_config_nvim
