@@ -4,6 +4,7 @@ return require('packer').startup(function()
 	use "ellisonleao/gruvbox.nvim"
 	use {"junegunn/fzf", run = ":call fzf#install()" }
 	use "junegunn/fzf.vim"
+  use "msprev/fzf-bibtex"
   use "rafamadriz/friendly-snippets"
 	use "hrsh7th/nvim-cmp"
 	use "hrsh7th/cmp-nvim-lsp"
@@ -14,4 +15,7 @@ return require('packer').startup(function()
   use "vim-airline/vim-airline"
   use "ray-x/lsp_signature.nvim"
   use "mfussenegger/nvim-lint"
+  use "svermeulen/vimpeccable"
+  use "mechatroner/rainbow_csv"
+  use 'lervag/vimtex'
 end)

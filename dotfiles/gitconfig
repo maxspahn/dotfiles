@@ -1,0 +1,10 @@
+[user]
+	email = m.spahn@tudelft.nl
+	name = Max Spahn
+[commit]
+	template = /home/mspahn/.config/git/gitmessage.txt
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

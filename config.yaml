@@ -3,29 +3,31 @@ config:
   create: true
   dotpath: dotfiles
 dotfiles:
+  d_config_nvim:
+    src: config/nvim
+    dst: ~/.config/nvim
+  d_config_zsh:
+    src: config/zsh
+    dst: ~/.config/zsh
   f_zshrc:
     src: zshrc
     dst: ~/.zshrc
-  f_tmux.conf:
-    src: config/tmux/tmux.conf
-    dst: ~/config/tmux/tmux.conf
-  d_nvim:
-    src: config/nvim
-    dst: ~/config/nvim
-  d_zsh:
-    src: config/zsh
-    dst: ~/config/zsh
-  d_config_nvim:
-    src: dotfiles/nvim_work
-    dst: ~/.config/nvim
+  f_gitconfig:
+    src: gitconfig
+    dst: ~/.gitconfig
+  d_git:
+    src: config/git
+    dst: ~/.config/git
+  d_ssh:
+    src: ssh
+    dst: ~/.ssh
+    chmod: '700'
 profiles:
-  max-private:
+  mspahn-work:
     dotfiles:
-    - f_zshrc
-    - f_tmux.conf
-    - d_nvim
-    - d_zsh
-  max-work:
-    dotfiles:
-    - f_zshrc
     - d_config_nvim
+    - d_config_zsh
+    - f_zshrc
+    - f_gitconfig
+    - d_git
+    - d_ssh

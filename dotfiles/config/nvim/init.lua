@@ -9,6 +9,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.relativenumber = true
 vim.opt.colorcolumn = '80'
+--vim.opt.textwidth = 80
 
 vim.opt.number = true
 
@@ -21,9 +22,13 @@ vim.cmd([[highlight Normal ctermbg=NONE guibg=#121212]])
 -- python
 -- Set the path to the local environment for the virtual environment
 
-vim.g.python3_host_prog = "$HOME/.pyenv/versions/3.8.9/bin/python"
+vim.g.python3_host_prog = "/usr/bin/python3"
 
 -- airline
 vim.cmd([[let g:airline#extensions#tabline#enabled = 1]])
 vim.cmd([[let g:airline#extensions#tabline#fnamemod= ':t']])
+
+if vim.bo.filetype == 'tex' then
+  vim.opt.textwidth = 80
+end
 

@@ -1,0 +1,8 @@
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+
+# Refer to https://www.conventionalcommits.org/en/v1.0.0/#specification
+# for further information.
