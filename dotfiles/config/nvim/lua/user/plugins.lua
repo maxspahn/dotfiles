@@ -18,4 +18,5 @@ return require('packer').startup(function()
   use "svermeulen/vimpeccable"
   use "mechatroner/rainbow_csv"
   use 'lervag/vimtex'
+  use 'iamcco/markdown-preview.nvim'
 end)

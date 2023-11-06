@@ -1,0 +1,10 @@
+filename=$1
+f="${filename%.*}"
+image=$filename
+video="$f.MOV"
+mv $image ~/Pictures/Trash
+if test -f "$video"; then
+  mv $video ~/Videos/Trash
+else
+  echo "No video to this photo."
+fi

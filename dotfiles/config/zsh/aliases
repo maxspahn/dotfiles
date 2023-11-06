@@ -1,3 +1,5 @@
+# BASIC ALIASES
+alias ll="ls -l"
 # GENERAL ALIASES
 alias nv="nvim"
 alias open='xdg-open'
@@ -6,6 +8,7 @@ alias hist='history | grep'
 alias config='cd /home/mspahn/develop/config'
 alias psh='poetry shell'
 alias p3='python3'
+alias pd='p3 -m pdb -c continue'
 alias ran='. ranger'
 alias latexproj='. ~/createTexProject'
 alias cuda='export PATH=/usr/local/cuda/bin:$PATH'
@@ -13,3 +16,9 @@ alias testSpeed='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/m
 alias setkey='cd ~/keyboard-layout;make install;cd -1'
 alias initenv='python3 -m venv env;source env/bin/activate'
 alias sshtus='ssh u100055318@access817298827.webspace-data.io'
+alias sshact='eval $(ssh-agent);ssh-add ~/.ssh/id_ed25519'
+alias localsend='cd ~/squashfs-root;./AppRun'
+alias getpass='sudo tail -n 1 ~/linux.txt'
+alias ytmp3='yt-dlp -x --audio-format mp3'
+alias photoshow='bash ~/.config/zsh/scripts/photoshow.sh'
+alias dotdrop='./dotdrop.sh'
