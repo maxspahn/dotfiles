@@ -22,6 +22,18 @@ dotfiles:
     src: ssh
     dst: ~/.ssh
     chmod: '700'
+  f_input.conf:
+    src: config/mpv/input.conf
+    dst: ~/.config/mpv/input.conf
+  d_i3:
+    src: config/i3
+    dst: ~/.config/i3
+  d_i3status:
+    src: config/i3status
+    dst: ~/.config/i3status
+  d_atuin:
+    src: config/atuin
+    dst: ~/.config/atuin
 profiles:
   mspahn-work:
     dotfiles:
@@ -31,3 +43,13 @@ profiles:
     - f_gitconfig
     - d_git
     - d_ssh
+    - f_input.conf
+    - d_i3
+    - d_i3status
+    - d_atuin
+  archlinux:
+    dotfiles:
+    - d_config_zsh
+    - d_config_nvim
+    - d_i3status
+    - d_atuin

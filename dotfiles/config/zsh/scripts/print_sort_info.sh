@@ -1,0 +1,6 @@
+echo "[1]: Move to folder Luna"
+echo "[2]: Move to folder Merle"
+echo "[3]: Move to folder Max"
+echo "[4]: Move to folder family"
+echo "[5]: Move to folder Delft"
+echo "[0]: Show info"

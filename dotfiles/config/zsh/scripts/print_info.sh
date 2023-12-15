@@ -1,0 +1,6 @@
+echo "[1]: Save image and save video"
+echo "[2]: Save image and delete video"
+echo "[3]: Delete image and save video"
+echo "[8]: Delete image and delete video"
+echo "[9]: Show video"
+echo "[0]: Show info"
