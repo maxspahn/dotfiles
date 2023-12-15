@@ -1,1 +1,1 @@
-print("Hi Python")
+vim.opt.textwidth = 0

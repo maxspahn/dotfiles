@@ -9,7 +9,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.relativenumber = true
 vim.opt.colorcolumn = '80'
---vim.opt.textwidth = 80
+vim.opt.textwidth = 80
 
 vim.opt.number = true
 
@@ -28,7 +28,4 @@ vim.g.python3_host_prog = "~/.pyenv/shims/python3"
 vim.cmd([[let g:airline#extensions#tabline#enabled = 1]])
 vim.cmd([[let g:airline#extensions#tabline#fnamemod= ':t']])
 
-if vim.bo.filetype == 'tex' then
-  vim.opt.textwidth = 80
-end
 

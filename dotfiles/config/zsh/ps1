@@ -10,4 +10,4 @@ git_prompt() {
 }
 setopt PROMPT_SUBST
 export PROMPT='%F{green}[-%2d]%f '
-export RPROMPT='%F{blue}$(git_prompt)'
+export RPROMPT='%F{#ADD8E6}$(git_prompt)'

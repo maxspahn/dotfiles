@@ -17,6 +17,5 @@ return require('packer').startup(function()
   use "mfussenegger/nvim-lint"
   use "svermeulen/vimpeccable"
   use "mechatroner/rainbow_csv"
-  use 'lervag/vimtex'
   use 'iamcco/markdown-preview.nvim'
 end)

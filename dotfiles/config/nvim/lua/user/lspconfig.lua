@@ -1,5 +1,5 @@
 local nvim_lsp = require('lspconfig')
-local servers = { 'pyright', 'clangd', 'rust_analyzer', 'cmake', 'tsserver'}
+local servers = { 'ruff_lsp', 'pyright', 'clangd', 'rust_analyzer', 'cmake', 'tsserver'}
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)

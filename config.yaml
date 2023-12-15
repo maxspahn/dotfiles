@@ -51,3 +51,5 @@ profiles:
     dotfiles:
     - d_config_zsh
     - d_config_nvim
+    - d_i3status
+    - d_atuin
