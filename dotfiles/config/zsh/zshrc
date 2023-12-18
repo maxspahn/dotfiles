@@ -8,8 +8,8 @@ source ~/.config/zsh/ohmyzsh
 
 {%@@ if zsh_setup == "raw" @@%}
 source ~/.config/zsh/ps1
-source ~/.config/zsh/completion.zsh
 source ~/.config/zsh/atuin
+source ~/.config/zsh/completion.zsh
 source ~/.project_variables
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
