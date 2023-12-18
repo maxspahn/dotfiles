@@ -18,10 +18,9 @@ dotfiles:
   d_git:
     src: config/git
     dst: ~/.config/git
-  d_ssh:
-    src: ssh
-    dst: ~/.ssh
-    chmod: '700'
+  f_ssh:
+    src: ssh/config
+    dst: ~/.ssh/config
   f_input.conf:
     src: config/mpv/input.conf
     dst: ~/.config/mpv/input.conf
@@ -34,22 +33,43 @@ dotfiles:
   d_atuin:
     src: config/atuin
     dst: ~/.config/atuin
+  f_config:
+    src: ssh/config
+    dst: ~/.ssh/config
 profiles:
   mspahn-work:
+    variables:
+      ros_version: noetic
+      phd: true
+      zsh_setup: ohmyzsh
+    dotfiles:
+    - d_config_zsh
+    - d_config_nvim
+    - f_zshrc
+    - f_gitconfig
+    - d_git
+    - f_ssh
+    - f_config
+  archlinux:
+    variables:
+      ros_version: None
+      phd: true
+      zsh_setup: raw
     dotfiles:
     - d_config_nvim
     - d_config_zsh
     - f_zshrc
     - f_gitconfig
     - d_git
-    - d_ssh
+    - f_ssh
     - f_input.conf
     - d_i3
     - d_i3status
     - d_atuin
-  archlinux:
+  debug:
     dotfiles:
     - d_config_zsh
-    - d_config_nvim
-    - d_i3status
-    - d_atuin
+    variables:
+      ros_version: noetic
+      phd: true
+      zsh_setup: ohmyzsh

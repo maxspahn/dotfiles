@@ -6,8 +6,28 @@ Host heijn
   HostName 192.168.42.1
   User mirte
 
+Host boxer
+  HostName 192.168.2.145
+  User administrator
+
+Host picker
+  HostName 192.168.1.100
+  User orderpicker
+
+Host panda
+  HostName 192.168.2.100
+  User mspahn
+
+Host pandaroot
+  HostName 192.168.2.100
+  User pandanuc
+
+Host orderpicker
+  HostName 192.168.2.100
+  User orderpicker
+
 Host robothon
-  HostName 145.94.152.248
+  HostName 145.94.159.153
   User platonics
 
 Host robothon_air

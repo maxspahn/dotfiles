@@ -1,3 +1,4 @@
+#{{@@ header() @@}}
 # BASIC ALIASES
 alias ls="ls --color"
 alias ll="ls -l"
@@ -5,31 +6,66 @@ alias feh="feh -Z --scale-down"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+
 # GENERAL ALIASES
 alias nv="nvim"
 alias open='xdg-open'
 alias cpuStat='mpstat -P ALL 1'
 alias hist='history | grep'
 alias config='cd /home/mspahn/develop/config'
-alias psh='sp; poetry shell'
 alias p3='python3'
 alias pd='p3 -m pdb -c continue'
-alias ran='. ranger'
-alias latexproj='. ~/createTexProject'
-alias cuda='export PATH=/usr/local/cuda/bin:$PATH'
 alias testSpeed='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
-alias setkey='cd ~/keyboard-layout;make install;cd -1'
 alias initenv='python3 -m venv env;source env/bin/activate'
-alias sp='~/.config/zsh/scripts/storepath.sh'
-alias proj='cd $PROJECT'
-alias sshtus='ssh u100055318@access817298827.webspace-data.io'
-alias sshact='eval $(ssh-agent);ssh-add ~/.ssh/id_ed25519'
-alias localsend='cd ~/squashfs-root;./AppRun'
-alias getpass='sudo tail -n 1 ~/linux.txt'
 alias ytmp3='yt-dlp -x --audio-format mp3'
 alias photoshow='bash ~/.config/zsh/scripts/photoshow.sh'
 alias photosort='bash ~/.config/zsh/scripts/sort_images.sh'
 alias dotdrop='./dotdrop.sh'
-alias notes='sshact;obsedian'
 alias gitlog='git log --oneline --graph --abbrev-commit'
+alias git-texdiff='. ~/.config/zsh/scripts/git-texdiff'
+
+
+
+{%@@ if profile == "archlinux" or profile == "debug" @@%}
+# ARCH-SPECIFIC
+alias notes='sshact;obsedian'
 alias jp='cd $PROJECT'
+alias sp='~/.config/zsh/scripts/storepath.sh'
+alias localsend='cd ~/squashfs-root;./AppRun'
+alias psh='sp; poetry shell'
+alias getpass='sudo tail -n 1 ~/linux.txt'
+alias sshact='eval $(ssh-agent);ssh-add ~/.ssh/id_ed25519'
+{%@@ endif @@%}
+
+{%@@ if profile == "mspahn-work" @@%}
+# WORK-SPECIFIC
+alias setkey='cd ~/keyboard-layout;make install;cd -1'
+alias psh='poetry shell'
+{%@@ endif @@%}
+
+{%@@ if phd @@%}
+# PHD-SPECIFIC
+alias code='cd ~/phd/research/code'
+alias fab='cd ~/phd/research/code/fabrics/'
+alias phd='cd /home/mspahn/phd'
+{%@@ endif @@%}
+
+{%@@ if ros_version == 'noetic' @@%}
+# ROS-SPECIFIC
+alias ros='source /opt/ros/noetic/setup.zsh'
+alias catalbert='source ~/catkin_albert/devel/setup.zsh;cd ~/catkin_albert'
+alias killgaz='killall -9 gzclient;killall -9 gzserver'
+alias sws='source devel/setup.zsh'
+alias connectnuc='export ROS_MASTER_URI=http://192.168.2.100:11311;export ROS_IP=192.168.2.118'
+alias connectheijn='export ROS_MASTER_URI=http://192.168.42.1:11311;export ROS_IP=192.168.42.161'
+alias connecttiago='export ROS_MASTER_URI=http://10.68.01:11311;export ROS_IP=10.68.01'
+alias connecthack='export ROS_MASTER_URI=http://192.168.0.100:11311;export ROS_IP=192.168.0.102'
+alias connectrobo='export ROS_MASTER_URI=http://145.94.152.248:11311;export ROS_IP=145.94.228.94'
+alias connectroboair='export ROS_MASTER_URI=http://192.168.1.164:11311;export ROS_IP=192.168.1.16'
+alias tiagoReal='ssh pal@10.68.01'
+alias panda='ssh mspahn@192.168.2.100'
+alias pandaPlus='ssh -Y mspahn@192.168.2.100'
+alias panda_tunnel="ssh -D 8080 -C -N pandanuc@192.168.2.100"
+alias open_gripper="rostopic pub -r 10 /gripper_online std_msgs/Float32 'data: 1.0'"
+alias close_gripper="rostopic pub -r 10 /gripper_online std_msgs/Float32 'data: 0.0'"
+{%@@ endif @@%}

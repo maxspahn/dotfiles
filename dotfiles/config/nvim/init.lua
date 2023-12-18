@@ -22,7 +22,7 @@ vim.cmd([[highlight Normal ctermbg=NONE guibg=#121212]])
 -- python
 -- Set the path to the local environment for the virtual environment
 
-vim.g.python3_host_prog = "$HOME/.pyenv/versions/3.8.9/bin/python"
+vim.g.python3_host_prog = "/usr/bin/python3"
 
 -- airline
 vim.cmd([[let g:airline#extensions#tabline#enabled = 1]])

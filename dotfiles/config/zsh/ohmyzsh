@@ -82,3 +82,6 @@ fi
 # For a full list of active aliases, run `alias`.
 #
 #
+bindkey "^[[A" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
+

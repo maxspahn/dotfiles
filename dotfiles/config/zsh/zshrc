@@ -1,23 +1,38 @@
-#source ~/.config/zsh/ohmyzsh
+#{{@@ header() @@}}
+HISTFILE=~/.zsh_history
+HISTSIZE=20000
+
+{%@@ if zsh_setup == "ohmyzsh" @@%}
+source ~/.config/zsh/ohmyzsh
+{%@@ endif @@%}
+
+{%@@ if zsh_setup == "raw" @@%}
 source ~/.config/zsh/ps1
-source ~/.config/zsh/aliases
-source ~/.config/zsh/aliases_work
-source ~/.path_variables
+source ~/.config/zsh/completion.zsh
 source ~/.config/zsh/atuin
 source ~/.project_variables
-
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
+{%@@ endif @@%}
 
-HISTFILE=~/.zsh_history
-HISTSIZE=20000
+source ~/.config/zsh/aliases
+source ~/.config/zsh/variables
 
+export PATH="$HOME/.local/bin:$PATH"
+
+# pyenv to manage different version of python
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv > /dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# poetry
 export PATH="$HOME/.poetry/bin:$PATH"
 export TERMINAL=uxterm-256color
 export EDITOR=nvim
 
-source ~/.config/zsh/completion.zsh
+bindkey -v
+

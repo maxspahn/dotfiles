@@ -1,0 +1,31 @@
+#!/usr/bin/bash
+if [[ -n $(git status --porcelain) ]]; then
+  echo "Uncommited changes. aborting."
+  exit 1
+fi
+if [ "$#" -eq 0 ]; then
+    echo "No arguments provided. Exiting script."
+    exit 1  # Exit the script with a non-zero status to indicate an error
+fi
+file_name=$1
+current_commit=$(git rev-parse --abbrev-ref HEAD)
+selected_commit=$(git log --oneline | fzf --height=50% --preview='git show {1}' --preview-window=:hidden --select-1 | awk '{print $1}')
+folder_name=$(pwd)
+temp_folder="${folder_name}/temp"
+diff_folder="${folder_name}/diff"
+rm -rf "${temp_folder}/*"
+rm -rf "${diff_folder}/*"
+ls
+echo "Selected commit hash: $selected_commit"
+git checkout $selected_commit
+#git show $selected_commit:$file_name > temp/$file_name
+rsync -av --progress . diff --exclude diff --exclude .git --exclude temp
+rsync -av --progress . temp --exclude diff --exclude .git --exclude temp
+git checkout $current_commit
+latexdiff --flatten -t CCHANGEBAR temp/$file_name $file_name > diff/$file_name
+cd diff
+pdflatex $file_name
+
+
+
+
