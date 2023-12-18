@@ -1,6 +1,7 @@
 #{{@@ header() @@}}
 HISTFILE=~/.zsh_history
 HISTSIZE=20000
+bindkey -v
 
 {%@@ if zsh_setup == "ohmyzsh" @@%}
 source ~/.config/zsh/ohmyzsh
@@ -34,5 +35,4 @@ export PATH="$HOME/.poetry/bin:$PATH"
 export TERMINAL=uxterm-256color
 export EDITOR=nvim
 
-bindkey -v
 

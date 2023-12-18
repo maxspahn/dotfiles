@@ -9,7 +9,7 @@ git_prompt() {
     [ -n "${branch}" ] && echo " (${branch})"
 }
 git_is_up_to_date() {
-    local changes="$(git status --porcelain)"
+    local changes="$(git status --porcelain 2> /dev/null)"
     local color="green"
     if [[ ${#changes} -gt 5 ]] ; then
       local color="red"
@@ -19,5 +19,4 @@ git_is_up_to_date() {
 
 setopt PROMPT_SUBST
 export PROMPT='%F{green}[-%2d]%f '
-#export RPROMPT='%F{#ADD8E6}$(git_prompt)'
 export RPROMPT='%F{$(git_is_up_to_date)}$(git_prompt)'
