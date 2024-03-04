@@ -34,5 +34,6 @@ Host robothon_air
   HostName 192.168.1.164
   User platonics
 
-
-
+Host albertLaptop
+  User albert
+  HostName 192.168.2.115
