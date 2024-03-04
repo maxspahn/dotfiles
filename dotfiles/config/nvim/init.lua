@@ -22,7 +22,13 @@ vim.cmd([[highlight Normal ctermbg=NONE guibg=#121212]])
 -- python
 -- Set the path to the local environment for the virtual environment
 
+{%@@ if profile == "archlinux" @@%}
+vim.g.python3_host_prog = "~/.pyenv/shims/python3"
+{%@@ endif @@%}
+
+{%@@ if profile == "mspahn-work" @@%}
 vim.g.python3_host_prog = "/usr/bin/python3"
+{%@@ endif @@%}
 
 -- airline
 vim.cmd([[let g:airline#extensions#tabline#enabled = 1]])

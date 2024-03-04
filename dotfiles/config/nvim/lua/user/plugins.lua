@@ -13,6 +13,8 @@ return require('packer').startup(function()
   use "lewis6991/gitsigns.nvim"
   use "vim-airline/vim-airline"
   use "ray-x/lsp_signature.nvim"
-  use "mfussenegger/nvim-lint"
   use "mechatroner/rainbow_csv"
+  use "github/copilot.vim"
+  use "nvim-tree/nvim-web-devicons"
+  use "folke/trouble.nvim"
 end)

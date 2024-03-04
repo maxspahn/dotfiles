@@ -11,15 +11,17 @@ export ISAACSIM_PYTHON_EXE="${ISAACSIM_PATH}/python.sh"
 export LD_LIBRARY_PATH="${HOME}/develop/acados/lib"
 export ACADOS_SOURCE_DIR="${HOME}/develop/acados"
 
+{%@@ if profile == "archlinux" @@%}
+PATH=/usr/local/texlive/2023/bin/x86_64-linux:$PATH; export PATH 
+MANPATH=/usr/local/texlive/2023/texmf-dist/doc/man:$MANPATH; export MANPATH 
+INFOPATH=/usr/local/texlive/2023/texmf-dist/doc/info:$INFOPATH; export INFOPATH
+{%@@ endif @@%}
+
 
 
 {%@@ if phd @@%}
-export icra23="${HOME}/phd/publications/23-spahn-icra"
 export ral24="${HOME}/phd/publications/24-spahn-ral"
-export tro23="${HOME}/phd/publications/23-spahn-tro"
-export mrs23="${HOME}/phd/publications/23-bakker-mrs"
 export urdfgym="${HOME}/phd/research/code/gym/env/gym_envs_urdf"
-export mppi="${HOME}/phd/research/code/mppi_isaac"
 export diss="${HOME}/phd/publications/24-spahn-dissertation/tex"
 {%@@ endif @@%}
 

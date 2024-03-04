@@ -35,4 +35,13 @@ export PATH="$HOME/.poetry/bin:$PATH"
 export TERMINAL=uxterm-256color
 export EDITOR=nvim
 
-
+{%@@ if profile == "archlinux" @@%}
+function ya() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+{%@@ endif @@%}
