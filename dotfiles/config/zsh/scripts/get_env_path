@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Get the output of 'poetry env info'
+env_info=$(poetry env info)
+
+# Extract the PATH variable
+path=$(echo "$env_info" | grep -oP 'Path: \K.*' | head -n 1 | sed -e 's/^[[:space:]]*//')
+
+echo $path
+

@@ -37,3 +37,20 @@ Host robothon_air
 Host albertLaptop
   HostName 192.168.2.115
   User albert
+
+Host delftblue
+  User mspahn
+  HostName login.delftblue.tudelft.nl
+  Port 22
+
+Host dingo2root
+  User administrator
+  HostName 192.168.0.122
+
+Host dinova2
+  User dinova
+  HostName 192.168.0.122
+
+Host dingo2
+  User mspahn
+  HostName 192.168.0.122

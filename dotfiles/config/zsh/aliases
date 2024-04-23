@@ -41,6 +41,7 @@ alias sshact='eval $(ssh-agent);ssh-add ~/.ssh/id_ed25519'
 # WORK-SPECIFIC
 alias setkey='cd ~/keyboard-layout;make install;cd -1'
 alias psh='poetry shell'
+alias cdenv='cd $(~/.config/zsh/scripts/get_env_path)'
 {%@@ endif @@%}
 
 {%@@ if phd @@%}
@@ -56,6 +57,7 @@ alias ros='source /opt/ros/noetic/setup.zsh'
 alias catalbert='source ~/catkin_albert/devel/setup.zsh;cd ~/catkin_albert'
 alias killgaz='killall -9 gzclient;killall -9 gzserver'
 alias sws='source devel/setup.zsh'
+alias erc='source ~/catkin_erc/devel/setup.zsh;cd ~/catkin_erc'
 alias getip="echo $(ip a | awk '/inet / {print $2}' | cut -d '/' -f 1 | tail -n 1)"
 alias connectnuc='export ROS_MASTER_URI=http://192.168.2.100:11311;export ROS_IP=$(getip)'
 alias connectheijn='export ROS_MASTER_URI=http://192.168.42.1:11311;export ROS_IP=$(getip)'
