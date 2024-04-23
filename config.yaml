@@ -39,6 +39,9 @@ dotfiles:
   f_config:
     src: ssh/config
     dst: ~/.ssh/config
+  f_inputrc:
+    src: inputrc
+    dst: ~/.inputrc
 profiles:
   mspahn-work:
     variables:
@@ -73,7 +76,7 @@ profiles:
     variables:
       ros_version: None
       phd: false
-      shelll_setup: bash
+      shell_setup: bash
     dotfiles:
     - d_config_nvim
     - d_config_shell
@@ -81,6 +84,7 @@ profiles:
     - f_gitconfig
     - d_git
     - f_ssh
+    - f_inputrc
     - f_input.conf
   debug:
     dotfiles:

@@ -51,6 +51,11 @@ alias fab='cd ~/phd/research/code/fabrics/'
 alias phd='cd /home/mspahn/phd'
 {%@@ endif @@%}
 
+{%@@ if profile == "cluster" @@%}
+# CLUSTER-SPECIFIC
+alias loadmods='module load 2023r1; module load py-pip'
+{%@@ endif @@%}
+
 {%@@ if ros_version == 'noetic' @@%}
 # ROS-SPECIFIC
 alias ros='source /opt/ros/noetic/setup.zsh'

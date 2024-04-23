@@ -17,13 +17,10 @@ git_is_up_to_date() {
     echo ${color}
 }
 
-PS1='\[\e[32m\][\w]\[\e[m\] '
+PS1='\[\e[32m\][\w]$(git_prompt)\[\e[m\] '
 PS2='> '
 PS4='+ '
 export PS1 PS2 PS4
 
 # Enable prompt substitution
 shopt -s promptvars
-
-# Set right prompt with Git status
-PROMPT_COMMAND='__git_ps1 "$(__git_is_up_to_date)"'

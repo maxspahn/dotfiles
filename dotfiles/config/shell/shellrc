@@ -8,7 +8,7 @@ source ~/.config/shell/ohmyzsh
 HISTFILE=~/.zsh_history
 HISTSIZE=20000
 bindkey -v
-source ~/.config/shell/ps1
+source ~/.config/shell/ps1.zsh
 source ~/.config/shell/atuin
 source ~/.config/shell/completion.zsh
 source ~/.project_variables
@@ -23,19 +23,10 @@ bindkey "^[[B" down-line-or-beginning-search
 {%@@ if shell_setup == "bash" @@%}
 HISTFILE=~/.bash_history
 HISTSIZE=20000
-bindkey -v
-source ~/.config/shell/ps1
-source ~/.config/shell/completion.bash
+source ~/.config/shell/ps1.bash
 source ~/.project_variables
+bind -f ~/.inputrc
 # Define functions and key bindings
-up-line-or-beginning-search() {
-    history-search-backward
-}
-down-line-or-beginning-search() {
-    history-search-forward
-}
-bind '"\e[A": up-line-or-beginning-search'
-bind '"\e[B": down-line-or-beginning-search'
 {%@@ endif @@%}
 
 source ~/.config/shell/aliases
@@ -43,6 +34,7 @@ source ~/.config/shell/variables
 
 export PATH="$HOME/.local/bin:$PATH"
 
+{%@@ if profile != "cluster" @@%}
 # pyenv to manage different version of python
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv > /dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
@@ -50,6 +42,8 @@ eval "$(pyenv init -)"
 
 # poetry
 export PATH="$HOME/.poetry/bin:$PATH"
+{%@@ endif @@%}
+
 export TERMINAL=uxterm-256color
 export EDITOR=nvim
 
