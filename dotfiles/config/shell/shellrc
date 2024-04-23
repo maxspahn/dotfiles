@@ -1,16 +1,16 @@
 #{{@@ header() @@}}
+
+{%@@ if shell_setup == "ohmyzsh" @@%}
+source ~/.config/shell/ohmyzsh
+{%@@ endif @@%}
+
+{%@@ if shell_setup == "zsh" @@%}
 HISTFILE=~/.zsh_history
 HISTSIZE=20000
 bindkey -v
-
-{%@@ if zsh_setup == "ohmyzsh" @@%}
-source ~/.config/zsh/ohmyzsh
-{%@@ endif @@%}
-
-{%@@ if zsh_setup == "raw" @@%}
-source ~/.config/zsh/ps1
-source ~/.config/zsh/atuin
-source ~/.config/zsh/completion.zsh
+source ~/.config/shell/ps1
+source ~/.config/shell/atuin
+source ~/.config/shell/completion.zsh
 source ~/.project_variables
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
@@ -20,8 +20,26 @@ bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 {%@@ endif @@%}
 
-source ~/.config/zsh/aliases
-source ~/.config/zsh/variables
+{%@@ if shell_setup == "bash" @@%}
+HISTFILE=~/.bash_history
+HISTSIZE=20000
+bindkey -v
+source ~/.config/shell/ps1
+source ~/.config/shell/completion.bash
+source ~/.project_variables
+# Define functions and key bindings
+up-line-or-beginning-search() {
+    history-search-backward
+}
+down-line-or-beginning-search() {
+    history-search-forward
+}
+bind '"\e[A": up-line-or-beginning-search'
+bind '"\e[B": down-line-or-beginning-search'
+{%@@ endif @@%}
+
+source ~/.config/shell/aliases
+source ~/.config/shell/variables
 
 export PATH="$HOME/.local/bin:$PATH"
 

@@ -6,12 +6,15 @@ dotfiles:
   d_config_nvim:
     src: config/nvim
     dst: ~/.config/nvim
-  d_config_zsh:
-    src: config/zsh
-    dst: ~/.config/zsh
+  d_config_shell:
+    src: config/shell
+    dst: ~/.config/shell
   f_zshrc:
     src: zshrc
     dst: ~/.zshrc
+  f_bashrc:
+    src: bashrc
+    dst: ~/.bashrc
   f_gitconfig:
     src: gitconfig
     dst: ~/.gitconfig
@@ -41,9 +44,9 @@ profiles:
     variables:
       ros_version: noetic
       phd: true
-      zsh_setup: ohmyzsh
+      shell_setup: ohmyzsh
     dotfiles:
-    - d_config_zsh
+    - d_config_shell
     - d_config_nvim
     - f_zshrc
     - f_gitconfig
@@ -54,10 +57,10 @@ profiles:
     variables:
       ros_version: None
       phd: true
-      zsh_setup: raw
+      shell_setup: raw
     dotfiles:
     - d_config_nvim
-    - d_config_zsh
+    - d_config_shell
     - f_zshrc
     - f_gitconfig
     - d_git
@@ -66,10 +69,23 @@ profiles:
     - d_i3
     - d_i3status
     - d_atuin
+  cluster:
+    variables:
+      ros_version: None
+      phd: false
+      shelll_setup: bash
+    dotfiles:
+    - d_config_nvim
+    - d_config_shell
+    - f_bashrc
+    - f_gitconfig
+    - d_git
+    - f_ssh
+    - f_input.conf
   debug:
     dotfiles:
-    - d_config_zsh
+    - d_config_shell
     variables:
       ros_version: noetic
       phd: true
-      zsh_setup: ohmyzsh
+      shell_setup: ohmyzsh
