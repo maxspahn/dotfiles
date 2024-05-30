@@ -9,7 +9,11 @@ HISTFILE=~/.zsh_history
 HISTSIZE=20000
 bindkey -v
 source ~/.config/shell/ps1.zsh
+{%@@ endif @@%}
+{%@@ if atuin @@%}
 source ~/.config/shell/atuin
+{%@@ endif @@%}
+{%@@ if shell_setup == "zsh" @@%}
 source ~/.config/shell/completion.zsh
 source ~/.project_variables
 autoload -U up-line-or-beginning-search
@@ -34,12 +38,14 @@ source ~/.config/shell/variables
 
 export PATH="$HOME/.local/bin:$PATH"
 
-{%@@ if profile != "cluster" @@%}
+{%@@ if pyenv @@%}
 # pyenv to manage different version of python
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv > /dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+{%@@ endif @@%}
 
+{%@@ if poetry @@%}
 # poetry
 export PATH="$HOME/.poetry/bin:$PATH"
 {%@@ endif @@%}
