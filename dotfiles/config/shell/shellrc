@@ -35,6 +35,7 @@ bind -f ~/.inputrc
 
 source ~/.config/shell/aliases
 source ~/.config/shell/variables
+source ~/.config/shell/functions
 
 export PATH="$HOME/.local/bin:$PATH"
 

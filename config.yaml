@@ -52,13 +52,13 @@ profiles:
       pyenv: true
       atuin: false
     dotfiles:
-    - d_config_shell
-    - d_config_nvim
-    - f_zshrc
-    - f_gitconfig
-    - d_git
-    - f_ssh
-    - f_config
+      - d_config_shell
+      - d_config_nvim
+      - f_zshrc
+      - f_gitconfig
+      - d_git
+      - f_ssh
+      - f_config
   archlinux:
     variables:
       poetry: true
@@ -66,18 +66,18 @@ profiles:
       atuin: true
       ros_version: None
       phd: true
-      shell_setup: raw
+      shell_setup: zsh
     dotfiles:
-    - d_config_nvim
-    - d_config_shell
-    - f_zshrc
-    - f_gitconfig
-    - d_git
-    - f_ssh
-    - f_input.conf
-    - d_i3
-    - d_i3status
-    - d_atuin
+      - d_config_nvim
+      - d_config_shell
+      - f_zshrc
+      - f_gitconfig
+      - d_git
+      - f_ssh
+      - f_input.conf
+      - d_i3
+      - d_i3status
+      - d_atuin
   cluster:
     variables:
       poetry: false
@@ -87,14 +87,14 @@ profiles:
       shell_setup: bash
       atuin: false
     dotfiles:
-    - d_config_nvim
-    - d_config_shell
-    - f_bashrc
-    - f_gitconfig
-    - d_git
-    - f_ssh
-    - f_inputrc
-    - f_input.conf
+      - d_config_nvim
+      - d_config_shell
+      - f_bashrc
+      - f_gitconfig
+      - d_git
+      - f_ssh
+      - f_inputrc
+      - f_input.conf
   robot:
     variables:
       ros_version: noetic
@@ -104,15 +104,15 @@ profiles:
       poetry: false
       atuin: false
     dotfiles:
-    - d_config_nvim
-    - d_config_shell
-    - f_zshrc
-    - f_gitconfig
-    - d_git
-    - f_ssh
+      - d_config_nvim
+      - d_config_shell
+      - f_zshrc
+      - f_gitconfig
+      - d_git
+      - f_ssh
   debug:
     dotfiles:
-    - d_config_shell
+      - d_config_shell
     variables:
       ros_version: noetic
       phd: true
