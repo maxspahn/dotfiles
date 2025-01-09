@@ -24,7 +24,7 @@ git checkout $current_commit
 rsync -av --progress . diff --exclude diff --exclude .git --exclude temp
 latexdiff --flatten -t UNDERLINE temp/$file_name $file_name > diff/$file_name
 cd diff
-pdflatex $file_name
+echo "Compile your latex file using your preferred method."
 
 
 
