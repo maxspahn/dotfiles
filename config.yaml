@@ -8,6 +8,9 @@ dotfiles:
   d_config_nvim:
     src: config/nvim
     dst: ~/.config/nvim
+  d_config_nvim_win:
+    src: config/nvim-win
+    dst: ~/.config/nvim
   d_config_shell:
     src: config/shell
     dst: ~/.config/shell
@@ -77,6 +80,7 @@ profiles:
       shell_setup: zsh
     dotfiles:
     - d_config_shell
+    - d_config_nvim_win
     - d_config_tmux
     - f_zshrc
     - f_gitconfig
