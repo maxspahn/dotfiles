@@ -2,6 +2,8 @@ config:
   backup: true
   create: true
   dotpath: dotfiles
+  instignore:
+    - '*.swp'
 dotfiles:
   d_config_nvim:
     src: config/nvim
@@ -9,6 +11,9 @@ dotfiles:
   d_config_shell:
     src: config/shell
     dst: ~/.config/shell
+  d_config_tmux:
+    src: config/tmux
+    dst: ~/.config/tmux
   f_zshrc:
     src: zshrc
     dst: ~/.zshrc
@@ -61,6 +66,21 @@ profiles:
     - f_gitconfig
     - d_git
     - f_ssh
+    - f_config
+  wsl:
+    variables:
+      poetry: true
+      pyenv: true
+      atuin: false
+      phd: false
+      ros_version: None
+      shell_setup: zsh
+    dotfiles:
+    - d_config_shell
+    - d_config_tmux
+    - f_zshrc
+    - f_gitconfig
+    - d_git
     - f_config
   archlinux:
     variables:

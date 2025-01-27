@@ -9,4 +9,6 @@
 	process = git-lfs filter-process
 	required = true
 [init]
-  defaultBranch = main
+	defaultBranch = main
+[core]
+	excludesfile = /home/mspahn/.config/git/gitignore
