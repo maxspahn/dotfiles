@@ -14,9 +14,9 @@ dotfiles:
   d_config_shell:
     src: config/shell
     dst: ~/.config/shell
-  d_config_tmux:
-    src: config/tmux
-    dst: ~/.config/tmux
+  f_tmux:
+    src: tmux.conf
+    dst: ~/.tmux.conf
   f_zshrc:
     src: zshrc
     dst: ~/.zshrc
@@ -81,7 +81,7 @@ profiles:
     dotfiles:
     - d_config_shell
     - d_config_nvim_win
-    - d_config_tmux
+    - f_tmux
     - f_zshrc
     - f_gitconfig
     - d_git
