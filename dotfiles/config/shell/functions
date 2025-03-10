@@ -32,6 +32,10 @@ git_is_up_to_date() {
 get_ros_ws() {
     local path="${COLCON_PREFIX_PATH%%:*}"  # Get first path before ':'
     path="${path%/}"  # Remove trailing slash if present
-    path="${path%/*}"  # Remove last component (e.g., 'install')
-    echo "${path##*/}"  # Extract the last part (workspace name)
+    path="${path%/*}"  # Remove last component (e.g., 'install' or 'build')
+    
+    local ws="${path##*/}"  # Extract the last part (workspace name)
+    
+    [[ -n "$ws" ]] && echo "($ws)"
 }
+
