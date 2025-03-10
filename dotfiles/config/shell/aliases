@@ -55,6 +55,11 @@ alias phd='cd /home/mspahn/phd'
 alias loadmods='module load 2023r1; module load py-pip'
 {%@@ endif @@%}
 
+{%@@ if ros_version == 'rolling' @@%}
+alias ros='source /opt/ros/rolling/setup.zsh'
+alias sws='source install/setup.zsh'
+{%@@ endif @@%}
+
 {%@@ if ros_version == 'noetic' @@%}
 # ROS-SPECIFIC
 alias ros='source /opt/ros/noetic/setup.zsh'

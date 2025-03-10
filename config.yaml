@@ -76,7 +76,7 @@ profiles:
       pyenv: true
       atuin: false
       phd: false
-      ros_version: None
+      ros_version: rolling
       shell_setup: zsh
     dotfiles:
     - d_config_shell

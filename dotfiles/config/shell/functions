@@ -1,3 +1,4 @@
+
 vv() {
   # Assumes all configs exist in directories named ~/.config/nvim-*
   local config=$(fd --max-depth 1 --glob 'nvim-*' ~/.config | fzf --prompt="Neovim Configs > " --height=~50% --layout=reverse --border --exit-0)
@@ -7,4 +8,30 @@ vv() {
  
   # Open Neovim with the selected config
   NVIM_APPNAME=$(basename $config) nvim $@
+}
+
+git_prompt() {
+    local branch="$(git symbolic-ref HEAD 2> /dev/null | cut -d'/' -f3-)"
+    local branch_truncated="${branch:0:30}"
+
+    if (( ${#branch} > ${#branch_truncated} )); then
+        branch="${branch_truncated}..."
+    fi
+
+    [ -n "${branch}" ] && echo " (${branch})"
+}
+git_is_up_to_date() {
+    local changes="$(git status --porcelain 2> /dev/null)"
+    local color="green"
+    if [[ ${#changes} -gt 5 ]] ; then
+      local color="red"
+    fi
+    echo ${color}
+}
+
+get_ros_ws() {
+    local path="${COLCON_PREFIX_PATH%%:*}"  # Get first path before ':'
+    path="${path%/}"  # Remove trailing slash if present
+    path="${path%/*}"  # Remove last component (e.g., 'install')
+    echo "${path##*/}"  # Extract the last part (workspace name)
 }
