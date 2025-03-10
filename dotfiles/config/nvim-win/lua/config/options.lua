@@ -37,6 +37,6 @@ vim.cmd("colorscheme gruvbox")
 -- global.python3_host_prog = '"C:/Program Files/WindowsApps/PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0/python3.11.exe"'
 -- global.python3_host_prog = 'C:/Users/DEMASPA1/AppData/Local/Microsoft/WindowsApps/python3.exe'
 
-vim.cmd [[let &shell = '"C:/Users/DEMASPA1/AppData/Local/Programs/Git//bin/bash.exe"']]
+-- vim.cmd [[let &shell = '"C:/Users/DEMASPA1/AppData/Local/Programs/Git//bin/bash.exe"']]
 vim.cmd [[let &shellcmdflag = '-s']]
 
