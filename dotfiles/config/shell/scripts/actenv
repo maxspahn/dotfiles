@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Function to search for a virtual environment
+search_venv() {
+  local dir="$1"
+  
+  # Check if we're at the home directory or the root
+  if [[ "$dir" == "$HOME" || "$dir" == "/" ]]; then
+    echo "No virtual environment found."
+    return 1
+  fi
+
+  # Check if a virtual environment exists (looking for 'bin/activate' in the directory)
+  if [[ -f "$dir/bin/activate" ]]; then
+    echo "Virtual environment found at: $dir"
+    # Activate the virtual environment by sourcing the activate script
+    source "$dir/bin/activate"
+    return 0
+  fi
+
+  if [[ -f "$dir/.venv/bin/activate" ]]; then
+    echo "PDM virtual environment found at: $dir"
+    # Activate the virtual environment by sourcing the activate script
+    source "$dir/.venv/bin/activate"
+    return 0
+  fi
+
+  # Recurse into the parent directory
+  search_venv "$(dirname "$dir")"
+}
+
+# Start search from the current directory
+search_venv "$(pwd)"
+
+

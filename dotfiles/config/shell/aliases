@@ -23,6 +23,7 @@ alias photosort='bash ~/.config/shell/scripts/sort_images.sh'
 alias dotdrop='./dotdrop.sh'
 alias gitlog='git log --oneline --graph --abbrev-commit'
 alias git-texdiff='. ~/.config/shell/scripts/git-texdiff'
+alias actenv='source ~/.config/shell/scripts/actenv'
 
 
 
@@ -32,7 +33,6 @@ alias notes='sshact;obsedian'
 alias jp='cd $PROJECT'
 alias sp='~/.config/shell/scripts/storepath.sh'
 alias localsend='cd ~/squashfs-root;./AppRun'
-alias psh='sp; poetry shell'
 alias getpass='sudo tail -n 1 ~/linux.txt'
 alias sshact='eval $(ssh-agent);ssh-add ~/.ssh/id_ed25519'
 {%@@ endif @@%}
@@ -40,7 +40,6 @@ alias sshact='eval $(ssh-agent);ssh-add ~/.ssh/id_ed25519'
 {%@@ if profile == "mspahn-work" @@%}
 # WORK-SPECIFIC
 alias setkey='cd ~/keyboard-layout;make install;cd -1'
-alias psh='poetry shell'
 alias cdenv='cd $(~/.config/shell/scripts/get_env_path)'
 {%@@ endif @@%}
 

@@ -2,6 +2,15 @@
 
 {%@@ if profile == "wsl" @@%}
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:$HOME/.local/bin"
+setopt SHARE_HISTORY
+setopt HIST_SAVE_NO_DUPS
+trap 'history -a' EXIT
+
+if [ ! -f /run/user/1000/wayland-0.lock ]; then
+  ln -s /mnt/wslg/runtime-dir/wayland-0* /run/user/1000/
+else
+  echo "Wayland already active."
+fi
 {%@@ endif @@%}
 
 {%@@ if shell_setup == "ohmyzsh" @@%}
