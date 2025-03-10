@@ -31,9 +31,9 @@ o.autochdir = true
 o.fileformat = "unix"
 
 vim.cmd("colorscheme gruvbox")
-global.loaded_python3_provider = 1
-local user_profile = vim.fn.getenv 'USERPROFILE'
-vim.g.python3_host_prog = user_profile .. '/.pyenv/pyenv-win/versions/3.10.11/python.exe'
+-- global.loaded_python3_provider = 1
+-- local user_profile = vim.fn.getenv 'USERPROFILE'
+-- vim.g.python3_host_prog = user_profile .. '/.pyenv/pyenv-win/versions/3.10.11/python.exe'
 -- global.python3_host_prog = '"C:/Program Files/WindowsApps/PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0/python3.11.exe"'
 -- global.python3_host_prog = 'C:/Users/DEMASPA1/AppData/Local/Microsoft/WindowsApps/python3.exe'
 
