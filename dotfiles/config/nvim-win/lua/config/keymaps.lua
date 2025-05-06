@@ -10,9 +10,9 @@ map("n", "<leader>q", "<CMD>q<CR>")
 map("n", "<leader>x", "<CMD>q!<CR>")
 map("i", "<leader>x", "<ESC><CMD>q!<CR>")
 -- Close buffer
-map("n", "<leader>d", "<CMD>bd<CR>")
 map("n", "<Leader>n", ":bn <CR>")
 map("n", "<Leader>p", ":bp <CR>")
+map("n", "<Leader>cb", "<CMD>%bd|e#<CR>")
 
 -- Exit insert mode
 map("i", "<leader>,", "<ESC>")

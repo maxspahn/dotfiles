@@ -30,6 +30,12 @@ o.background = "dark"
 o.autochdir = true
 o.fileformat = "unix"
 
+vim.filetype.add({
+  extension = {
+    tpp = "cpp",
+  },
+})
+
 vim.cmd("colorscheme gruvbox")
 -- global.loaded_python3_provider = 1
 -- local user_profile = vim.fn.getenv 'USERPROFILE'
