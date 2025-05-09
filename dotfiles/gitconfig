@@ -1,5 +1,5 @@
 [user]
-	email = m.spahn@tudelft.nl
+	email = max.spahn@de.abb.com
 	name = Max Spahn
 [commit]
 	template = /home/mspahn/.config/git/gitmessage.txt
