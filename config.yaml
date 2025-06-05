@@ -84,7 +84,7 @@ profiles:
       shell_setup: zsh
     dotfiles:
     - d_config_shell
-    - d_config_nvim_win
+    - d_config_nvim
     - f_tmux
     - f_zshrc
     - f_gitconfig
@@ -111,7 +111,7 @@ profiles:
     - d_i3
     - d_i3status
     - d_atuin
-    - d_nvim
+    - d_config_nvim
   cluster:
     variables:
       poetry: false
