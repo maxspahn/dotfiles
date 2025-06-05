@@ -3,7 +3,7 @@ config:
   create: true
   dotpath: dotfiles
   instignore:
-    - '*.swp'
+  - '*.swp'
 dotfiles:
   d_config_nvim:
     src: config/nvim
@@ -53,6 +53,12 @@ dotfiles:
   d_nvim-lazy:
     src: config/nvim-lazy
     dst: ~/.config/nvim-lazy
+  f_gitignore_global:
+    src: gitignore_global
+    dst: ~/.gitignore_global
+  f_gitignore:
+    src: config/git/gitignore
+    dst: ~/.config/git/gitignore
 profiles:
   mspahn-work:
     variables:
@@ -67,6 +73,7 @@ profiles:
     - d_config_nvim
     - f_zshrc
     - f_gitconfig
+    - f_gitignore
     - d_git
     - f_ssh
     - f_config
@@ -84,6 +91,7 @@ profiles:
     - f_tmux
     - f_zshrc
     - f_gitconfig
+    - f_gitignore
     - d_git
     - f_config
   archlinux:
@@ -99,6 +107,7 @@ profiles:
     - d_config_shell
     - f_zshrc
     - f_gitconfig
+    - f_gitignore
     - d_git
     - f_ssh
     - f_input.conf
@@ -119,29 +128,8 @@ profiles:
     - d_config_shell
     - f_bashrc
     - f_gitconfig
+    - f_gitignore
     - d_git
     - f_ssh
     - f_inputrc
     - f_input.conf
-  robot:
-    variables:
-      ros_version: noetic
-      phd: false
-      shell_setup: zsh
-      pyenv: false
-      poetry: false
-      atuin: false
-    dotfiles:
-    - d_config_nvim
-    - d_config_shell
-    - f_zshrc
-    - f_gitconfig
-    - d_git
-    - f_ssh
-  debug:
-    dotfiles:
-    - d_config_shell
-    variables:
-      ros_version: noetic
-      phd: true
-      shell_setup: ohmyzsh
