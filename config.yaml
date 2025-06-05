@@ -50,9 +50,6 @@ dotfiles:
   f_inputrc:
     src: inputrc
     dst: ~/.inputrc
-  d_nvim-lazy:
-    src: config/nvim-lazy
-    dst: ~/.config/nvim-lazy
   f_gitignore_global:
     src: gitignore_global
     dst: ~/.gitignore_global
@@ -114,7 +111,7 @@ profiles:
     - d_i3
     - d_i3status
     - d_atuin
-    - d_nvim-lazy
+    - d_nvim
   cluster:
     variables:
       poetry: false
@@ -133,3 +130,6 @@ profiles:
     - f_ssh
     - f_inputrc
     - f_input.conf
+  DE-L-PF57QJK8:
+    dotfiles:
+    - d_config_nvim
