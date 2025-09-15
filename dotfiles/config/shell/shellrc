@@ -2,8 +2,9 @@
 
 {%@@ if profile == "wsl" @@%}
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:$HOME/.local/bin"
+setopt APPEND_HISTORY
 setopt SHARE_HISTORY
-setopt HIST_SAVE_NO_DUPS
+setopt INC_APPEND_HISTORY
 trap 'history -a' EXIT
 
 if [ ! -f /run/user/1000/wayland-0.lock ]; then
@@ -20,6 +21,7 @@ source ~/.config/shell/ohmyzsh
 {%@@ if shell_setup == "zsh" @@%}
 HISTFILE=~/.zsh_history
 HISTSIZE=20000
+SAVEHIST=20000
 bindkey -v
 source ~/.config/shell/ps1.zsh
 {%@@ endif @@%}
