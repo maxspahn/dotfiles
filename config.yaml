@@ -56,6 +56,9 @@ dotfiles:
   f_gitignore:
     src: config/git/gitignore
     dst: ~/.config/git/gitignore
+  f_starship.toml:
+    src: config/starship.toml
+    dst: ~/.config/starship.toml
 profiles:
   mspahn-work:
     variables:
@@ -76,7 +79,7 @@ profiles:
     - f_config
   wsl:
     variables:
-      poetry: true
+      poetry: false
       pyenv: true
       atuin: false
       phd: false
@@ -132,4 +135,8 @@ profiles:
     - f_input.conf
   DE-L-PF57QJK8:
     dotfiles:
+    - d_config_nvim
+  DE-L-7469684:
+    dotfiles:
+    - f_starship.toml
     - d_config_nvim

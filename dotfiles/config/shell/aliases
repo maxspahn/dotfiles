@@ -1,6 +1,6 @@
 #{{@@ header() @@}}
 # BASIC ALIASES
-alias ls="ls --color"
+alias ls="ls --color=auto"
 alias ll="ls -l"
 alias feh="feh -Z --scale-down"
 alias ..="cd .."

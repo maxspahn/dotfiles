@@ -1,12 +1,6 @@
 #{{@@ header() @@}}
 
 {%@@ if profile == "wsl" @@%}
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:$HOME/.local/bin"
-setopt APPEND_HISTORY
-setopt SHARE_HISTORY
-setopt INC_APPEND_HISTORY
-trap 'history -a' EXIT
-
 if [ ! -f /run/user/1000/wayland-0.lock ]; then
   ln -s /mnt/wslg/runtime-dir/wayland-0* /run/user/1000/
 else
@@ -19,11 +13,15 @@ source ~/.config/shell/ohmyzsh
 {%@@ endif @@%}
 
 {%@@ if shell_setup == "zsh" @@%}
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:$HOME/.local/bin"
 HISTFILE=~/.zsh_history
 HISTSIZE=20000
 SAVEHIST=20000
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
 bindkey -v
-source ~/.config/shell/ps1.zsh
+# source ~/.config/shell/ps1.zsh
 {%@@ endif @@%}
 {%@@ if atuin @@%}
 source ~/.config/shell/atuin
@@ -78,4 +76,14 @@ function ya() {
 	fi
 	rm -f -- "$tmp"
 }
+{%@@ endif @@%}
+
+{%@@ if shell_setup == "zsh" @@%}
+eval "$(direnv init zsh)"
+eval "$(starship init zsh)"
+{%@@ endif @@%}
+
+{%@@ if shell_setup == "bash" @@%}
+eval "$(direnv init bash)"
+eval "$(starship init bash)"
 {%@@ endif @@%}

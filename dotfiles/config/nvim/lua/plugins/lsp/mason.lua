@@ -30,7 +30,9 @@ return {
       ensure_installed = {
         "lua_ls",
         "pyright",
+        "omnisharp",
       },
+      automatic_installation = true,
     })
 
     mason_tool_installer.setup({
@@ -42,6 +44,7 @@ return {
         "pylint",
         "eslint_d",
       },
+      automatic_installation = true,
     })
   end,
 }

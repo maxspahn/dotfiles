@@ -3,6 +3,7 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
+    "nvimtools/none-ls.nvim",
     { "antosha417/nvim-lsp-file-operations", config = true },
     { "folke/neodev.nvim", opts = {} },
   },
@@ -15,6 +16,8 @@ return {
 
     -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
+
+    local nullls_config  = require("null-ls")
 
 
     local keymap = vim.keymap -- for conciseness
@@ -122,6 +125,29 @@ return {
         })
       end,
     })
+
+    nullls_config.setup({
+      sources = {
+        -- Replace these with the tools you have installed
+        nullls_config.builtins.code_actions.stylua, -- js/ts code actions
+        nullls_config.builtins.code_actions.black, -- js/ts code actions
+        nullls_config.builtins.formatting.black.with({ extra_args = { "--fast" } }), -- python formatter
+      },
+      on_attach = function(client, bufnr)
+        if client.supports_method("textDocument/formatting") then
+          vim.api.nvim_clear_autocmds({ group = "LspFormatting", buffer = bufnr })
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            group = vim.api.nvim_create_augroup("LspFormatting", {}),
+            buffer = bufnr,
+            callback = function()
+              vim.lsp.buf.format({ bufnr = bufnr })
+            end,
+          })
+        end
+      end,
+      vim.api.nvim_set_keymap('n', '<leader>bf', ':lua vim.lsp.buf.format({ async = true })<CR>', { noremap = true, silent = true })
+    })
+
   end,
 }
 
