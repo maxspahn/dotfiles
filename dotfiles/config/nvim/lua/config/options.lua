@@ -33,6 +33,8 @@ o.fileformat = "unix"
 o.ignorecase = true
 o.smartcase = false
 
+o.updatetime = 4000 -- default is 4000
+
 vim.filetype.add({
   extension = {
     tpp = "cpp",
@@ -40,4 +42,17 @@ vim.filetype.add({
 })
 
 vim.cmd("colorscheme catppuccin")
+
+
+vim.diagnostic.config({
+  virtual_text = {
+    spacing = 4,
+    prefix = "●", -- or "■", "▎", etc.
+  },
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+})
+
 

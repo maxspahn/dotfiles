@@ -1,26 +1,34 @@
 return {
-  "neovimtools/none-ls.nvim",
+  "nvimtools/none-ls.nvim",
   config = function()
-    require("null-ls").setup({
+    local null_ls = require("null-ls")
+
+    local on_attach = function(client, bufnr)
+      vim.notify("none-ls attached to buffer " .. bufnr, vim.log.levels.INFO)
+
+      if client.supports_method("textDocument/formatting") then
+        local group = vim.api.nvim_create_augroup("LspFormatting", { clear = true })
+        vim.api.nvim_clear_autocmds({ group = group, buffer = bufnr })
+        -- vim.api.nvim_create_autocmd("BufWritePre", {
+          -- group = group,
+          -- buffer = bufnr,
+          -- callback = function()
+            -- vim.lsp.buf.format({ bufnr = bufnr })
+          -- end,
+        -- })
+      end
+    end
+
+    null_ls.setup({
       sources = {
-        -- Add your null-ls sources here
-        require("null-ls").builtins.formatting.black.with({
-          extra_args = { "--fast" },
-        }),
-        require("null-ls").builtins.diagnostics.ruff.with({
-          extra_args = { "--ignore=E501" }, -- Example to ignore line length errors
-        }),
-        require("null-ls").builtins.diagnostics.mypy,
+        null_ls.builtins.formatting.black.with({ extra_args = { "--line-length", "120" } }),
+        null_ls.builtins.formatting.isort,
+        null_ls.builtins.diagnostics.mypy,
       },
+      on_attach = on_attach,
     })
-    -- vim.api.nvim_create_autocmd("BufWritePre", {
-      -- pattern = { "*.py" },
-      -- callback = function()
-        -- vim.lsp.buf.format({ async = true })
-      -- end,
-    -- })
-    --
-    vim.api.nvim_set_keymap('n', '<leader>bf', ':lua vim.lsp.buf.format({ async = true })<CR>', { noremap = true, silent = true })
-  end
+
+    vim.api.nvim_set_keymap('n', '<leader>ff', ':lua vim.lsp.buf.format({ async = true })<CR>', { noremap = true, silent = true })
+  end,
 }
 
