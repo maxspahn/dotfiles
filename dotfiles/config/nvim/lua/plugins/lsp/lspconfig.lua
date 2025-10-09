@@ -119,13 +119,16 @@ return {
           },
         })
       end,
-      -- Ruff (native LSP)
+      -- Ruff (native LSP) throw warning on line-length 100 exceeded
       ["ruff"] = function()
         lspconfig.ruff.setup({
           capabilities = capabilities,
           on_attach = function(client, bufnr)
             vim.notify("Ruff LSP attached to buffer " .. bufnr, vim.log.levels.INFO)
           end,
+          settings = {
+            args = { "--line-length=100" },
+          },
         })
       end,
 

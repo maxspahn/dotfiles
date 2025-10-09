@@ -9,6 +9,8 @@ map("v", "<leader>cc", ':lua require("config.functions").characterCount()<CR>', 
 -- Save
 map("n", "<leader>w", "<CMD>update<CR>")
 
+vim.api.nvim_create_user_command("W", "write", {})
+
 -- Quit
 map("n", "<leader>q", "<CMD>q<CR>")
 map("n", "<leader>x", "<CMD>q!<CR>")
