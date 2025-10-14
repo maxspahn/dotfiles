@@ -59,6 +59,12 @@ dotfiles:
   f_starship.toml:
     src: config/starship.toml
     dst: ~/.config/starship.toml
+  f_default.json:
+    src: mnt/c/Users/DEMASPA1/AppData/Local/Microsoft/PowerToys/Keyboard 
+      Manager/default.json
+    dst: /mnt/c/Users/DEMASPA1/AppData/Local/Microsoft/PowerToys/Keyboard 
+      Manager/default.json
+    chmod: '777'
 profiles:
   mspahn-work:
     variables:
@@ -94,6 +100,8 @@ profiles:
     - f_gitignore
     - d_git
     - f_config
+    - f_starship.toml
+    - f_default.json
   archlinux:
     variables:
       poetry: true
@@ -133,10 +141,3 @@ profiles:
     - f_ssh
     - f_inputrc
     - f_input.conf
-  DE-L-PF57QJK8:
-    dotfiles:
-    - d_config_nvim
-  DE-L-7469684:
-    dotfiles:
-    - f_starship.toml
-    - d_config_nvim
