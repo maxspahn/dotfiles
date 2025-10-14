@@ -1,5 +1,11 @@
 # Installation on WSL2 (Ubuntu24.04 LTS)
 '''
+sudo apt update
+sudo apt install -y zsh tmux cmake make gcc g++ python3-pip pass unzip lua5.4 liblua5.4-dev ripgrep feh mpv
+chsh mspahn
+'''
+
+'''
 curl -fsSL https://pyenv.run | bash
 sudo apt update; sudo apt install make build-essential libssl-dev zlib1g-dev \
 libbz2-dev libreadline-dev libsqlite3-dev curl git \
@@ -12,10 +18,6 @@ sudo cp cert-file.crt /usr/local/share/ca-certificates/cert-file.crt
 sudo update-ca-certificates
 '''
 
-'''
-sudo apt install -y zsh tmux cmake make gcc g++ python3-pip pass unzip lua5.4 liblua5.4-dev ripgrep
-chsh mspahn
-'''
 
 '''
 curl -LsSf https://astral.sh/uv/install.sh | sh
