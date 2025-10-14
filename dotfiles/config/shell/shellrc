@@ -1,19 +1,12 @@
 #{{@@ header() @@}}
 
-{%@@ if profile == "wsl" @@%}
-if [ ! -f /run/user/1000/wayland-0.lock ]; then
-  ln -s /mnt/wslg/runtime-dir/wayland-0* /run/user/1000/
-else
-  echo "Wayland already active."
-fi
-{%@@ endif @@%}
-
 {%@@ if shell_setup == "ohmyzsh" @@%}
 source ~/.config/shell/ohmyzsh
 {%@@ endif @@%}
 
 {%@@ if shell_setup == "zsh" @@%}
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:$HOME/.local/bin"
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 HISTFILE=~/.zsh_history
 HISTSIZE=20000
 SAVEHIST=20000
@@ -59,6 +52,13 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init -)"
 {%@@ endif @@%}
 
+# fnm and node
+FNM_PATH="/home/mspahn/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "`fnm env`"
+fi
+
 {%@@ if poetry @@%}
 # poetry
 export PATH="$HOME/.poetry/bin:$PATH"
@@ -79,8 +79,8 @@ function ya() {
 {%@@ endif @@%}
 
 {%@@ if shell_setup == "zsh" @@%}
-eval "$(direnv init zsh)"
 eval "$(starship init zsh)"
+eval "$(direnv hook zsh)"
 {%@@ endif @@%}
 
 {%@@ if shell_setup == "bash" @@%}
