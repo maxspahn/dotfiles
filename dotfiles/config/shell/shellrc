@@ -16,9 +16,6 @@ setopt SHARE_HISTORY
 bindkey -v
 # source ~/.config/shell/ps1.zsh
 {%@@ endif @@%}
-{%@@ if atuin @@%}
-source ~/.config/shell/atuin
-{%@@ endif @@%}
 {%@@ if shell_setup == "zsh" @@%}
 source ~/.config/shell/completion.zsh
 source ~/.project_variables
@@ -86,4 +83,10 @@ eval "$(direnv hook zsh)"
 {%@@ if shell_setup == "bash" @@%}
 eval "$(direnv init bash)"
 eval "$(starship init bash)"
+{%@@ endif @@%}
+
+{%@@ if atuin @@%}
+. "$HOME/.atuin/bin/env"
+eval "$(atuin init zsh)"
+bindkey '^[k' atuin-search
 {%@@ endif @@%}

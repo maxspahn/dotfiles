@@ -63,5 +63,13 @@ gpg --export-secret-keys -a <key-ID> > myprivatekey.gpg
 gpg --import myprivatekey.gpg
 '''
 
+'''
+curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
+'''
+
+'''
+pipx install litecli
+'''
+
 
 Go to https://nodejs.org/en/download

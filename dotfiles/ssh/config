@@ -2,11 +2,6 @@ Host tus
   HostName access817298827.webspace-data.io
   User u100055318
 
-Host delftblue
-  User mspahn
-  HostName login.delftblue.tudelft.nl
-  Port 22
-
 Host home
   User mspahn
   HostName 192.168.178.80

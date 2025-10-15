@@ -44,7 +44,7 @@ dotfiles:
   d_atuin:
     src: config/atuin
     dst: ~/.config/atuin
-  f_config:
+  f_ssh_config:
     src: ssh/config
     dst: ~/.ssh/config
   f_inputrc:
@@ -65,6 +65,10 @@ dotfiles:
     dst: /mnt/c/Users/DEMASPA1/AppData/Local/Microsoft/PowerToys/Keyboard 
       Manager/default.json
     chmod: '777'
+  f_atuin.toml:
+    src: config/atuin/config.toml
+    dst: ~/.config/atuin/config.toml
+    chmod: '600'
 profiles:
   mspahn-work:
     variables:
@@ -82,12 +86,12 @@ profiles:
     - f_gitignore
     - d_git
     - f_ssh
-    - f_config
+    - f_ssh_config
   wsl:
     variables:
       poetry: false
       pyenv: true
-      atuin: false
+      atuin: true
       phd: false
       ros_version: rolling
       shell_setup: zsh
@@ -99,8 +103,9 @@ profiles:
     - f_gitconfig
     - f_gitignore
     - d_git
-    - f_config
+    - f_ssh_config
     - f_starship.toml
+    - f_atuin.toml
     - f_default.json
   archlinux:
     variables:
