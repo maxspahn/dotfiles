@@ -7,8 +7,6 @@ return {
     { "folke/neodev.nvim", opts = {} },
   },
   config = function()
-    -- import lspconfig plugin
-    local lspconfig = require("lspconfig")
 
     -- import mason_lspconfig plugin
     local mason_lspconfig = require("mason-lspconfig")
@@ -20,7 +18,7 @@ return {
     local keymap = vim.keymap -- for conciseness
 
     -- Ensure that ltex is used for txt files
-    lspconfig.ltex.setup({
+    vim.lsp.config('ltex', {
       filetypes = { "markdown", "text", "tex", "txt" },
       settings = {
         ltex = {
@@ -33,6 +31,7 @@ return {
         },
       },
     })
+    vim.lsp.enable('ltex')
 
 
     vim.api.nvim_create_autocmd("LspAttach", {
@@ -98,13 +97,14 @@ return {
     mason_lspconfig.setup_handlers({
       -- default handler for installed servers
       function(server_name)
-        lspconfig[server_name].setup({
+        vim.lsp.config(server_name, {
           capabilities = capabilities,
         })
+        vim.lsp.enable(server_name)
       end,
       ["lua_ls"] = function()
         -- configure lua server (with special settings)
-        lspconfig["lua_ls"].setup({
+        vim.lsp.config('lua_ls', {
           capabilities = capabilities,
           settings = {
             Lua = {
@@ -118,10 +118,11 @@ return {
             },
           },
         })
+        vim.lsp.enable('lua_ls')
       end,
       -- Ruff (native LSP) throw warning on line-length 100 exceeded
       ["ruff"] = function()
-        lspconfig.ruff.setup({
+        vim.lsp.config('ruff', {
           capabilities = capabilities,
           on_attach = function(client, bufnr)
             vim.notify("Ruff LSP attached to buffer " .. bufnr, vim.log.levels.INFO)
@@ -130,11 +131,12 @@ return {
             args = { "--line-length=100" },
           },
         })
+        vim.lsp.enable('ruff')
       end,
 
       -- Pyright with Ruff integration
       ["pyright"] = function()
-        lspconfig.pyright.setup({
+        vim.lsp.config('pyright', {
           capabilities = capabilities,
           settings = {
             python = {
@@ -147,6 +149,7 @@ return {
             },
           },
         })
+        vim.lsp.enable('pyright')
       end
     })
   end,

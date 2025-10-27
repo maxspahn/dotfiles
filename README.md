@@ -17,3 +17,14 @@ pip install -r dotdrop/requirements.txt
 ```bash
 ./dotdrop.sh install -p archlinux
 ```
+
+
+## Interesting facts
+
+zsh config files
+.profile - executed for login shells
+.zshenv - executed for all shells
+.zprofile - executed for login shells
+.zshrc - executed for interactive shells
+.zlogin - executed for login shells
+.zlogout - executed when login shell exits
