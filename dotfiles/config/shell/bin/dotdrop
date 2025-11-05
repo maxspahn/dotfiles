@@ -1,0 +1,9 @@
+#!/bin/bash
+# Save this as /usr/local/bin/dotdrop (and make it executable)
+
+# Path to your virtual environment
+VENV_PATH="$HOME/develop/dotfiles/.venv"
+
+# Activate venv and run dotdrop
+source "$VENV_PATH/bin/activate"
+exec ~/develop/dotfiles/dotdrop.sh "$@"

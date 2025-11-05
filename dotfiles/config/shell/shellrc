@@ -7,6 +7,7 @@ source ~/.config/shell/ohmyzsh
 {%@@ if shell_setup == "zsh" @@%}
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:$HOME/.local/bin"
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+export PATH="$PATH:$HOME/.config/shell/bin"
 HISTFILE=~/.zsh_history
 HISTSIZE=20000
 SAVEHIST=20000

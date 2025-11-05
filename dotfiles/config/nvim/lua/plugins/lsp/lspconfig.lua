@@ -18,7 +18,7 @@ return {
     local keymap = vim.keymap -- for conciseness
 
     -- Ensure that ltex is used for txt files
-    vim.lsp.config('ltex', {
+    vim.lsp.config('ltex-ls', {
       filetypes = { "markdown", "text", "tex", "txt" },
       settings = {
         ltex = {

@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Check if arguments are provided
+if [ $# -lt 3 ]; then
+    echo "Usage: $0 <input_video> <speed_factor> <output_video>"
+    exit 1
+fi
+
+INPUT="$1"
+FACTOR="$2"
+OUTPUT="$3"
+
+# Speed up video and audio
+# For video: setpts=PTS/FACTOR
+# For audio: atempo supports 0.5–2.0, so chain if >2
+if (( $(echo "$FACTOR > 2.0" | bc -l) )); then
+    # Chain atempo filters for factors > 2
+    AUDIO_FILTER="atempo=2.0"
+    REMAINING=$(echo "$FACTOR / 2.0" | bc -l)
+    while (( $(echo "$REMAINING > 2.0" | bc -l) )); do
+        AUDIO_FILTER="$AUDIO_FILTER,atempo=2.0"
+        REMAINING=$(echo "$REMAINING / 2.0" | bc -l)
+    done
+    AUDIO_FILTER="$AUDIO_FILTER,atempo=$REMAINING"
+else
+    AUDIO_FILTER="atempo=$FACTOR"
+fi
+
+# Draw text in bottom-right corner
+TEXT="x ${FACTOR}"
+ffmpeg -i "$INPUT" -vf "setpts=PTS/${FACTOR},drawtext=text='${TEXT}':fontcolor=white:fontsize=40:x=w-tw-30:y=h-th-30" \
+       -filter:a "$AUDIO_FILTER" \
+       -preset fast -crf 23 "$OUTPUT"
+
+echo "Done! Output saved as $OUTPUT"

@@ -5,3 +5,21 @@ Host tus
 Host home
   User mspahn
   HostName 192.168.178.80
+
+Host p2
+  User mogli
+  HostName AMMR-P1-2.de.abb.com
+  Port 8022
+
+Host p3
+  User mogli
+  HostName AMMR-P1-3.de.abb.com
+  Port 8022
+
+Host p2_local
+  User mogli
+  HostName 192.168.11.11
+
+Host p3_local
+  User mogli
+  HostName 192.168.11.11
